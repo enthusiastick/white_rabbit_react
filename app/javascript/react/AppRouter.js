@@ -1,5 +1,5 @@
 import React from 'react'
-import Hello from './Hello'
+import Hello from './containers/Hello'
 
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
