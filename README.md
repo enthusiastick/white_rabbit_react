@@ -1,24 +1,22 @@
-# README
+# White Rabbit
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+----
+White Rabbit is an app built using `Ruby on Rails` as its backend server and `React.js` on the frontend. It showcases the core functionality of websockets using `ActionCable`.
 
-Things you may want to cover:
+## Terminal Tab 1
+```
+$ rails server
+```
 
-* Ruby version
+## Terminal Tab 2
+```
+$ yarn start
+```
 
-* System dependencies
+## Terminal Tab 3
+```
+$ redis-server /usr/local/etc/redis.conf
+```
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* This presumes you have `redis` installed locally via `Homebrew`.
+* If `redis` is already running, you can use the command `redis-cli shutdown` to stop it.
