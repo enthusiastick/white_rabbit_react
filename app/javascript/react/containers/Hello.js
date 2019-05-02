@@ -1,9 +1,19 @@
 import React, {Component} from 'react'
 import {Formik} from 'formik'
 
+import Message from '../components/Message'
 import SendMessageForm from '../forms/SendMessageForm'
 
 class Hello extends Component {
+  constructor(props) {
+    super(props)
+
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.state = {
+      messages: ['Boo yaa']
+    }
+  }
+
   componentDidMount() {
     App.MonitorChannel = App.cable.subscriptions.create(
       {
@@ -11,26 +21,27 @@ class Hello extends Component {
       },
       {
         received: data => {
-          console.log(data)
+          const newMessages = data.clear ? [data.message] : this.state.messages.concat(data.message)
+          this.setState({messages: newMessages})
         }
       }
     )
   }
 
-  handleClick() {
-    App.MonitorChannel.send({ message: "Hello, World!" })
-  }
-
-  handleSubmit(values) {
-    console.log(values)
+  handleSubmit(values, {resetForm}) {
+    const { clear, message } = values
+    App.MonitorChannel.send({ clear, message })
+    resetForm()
   }
 
   render() {
+    const messages = this.state.messages.map((message, index) => (<Message key={index} text={message} />))
+
     return(
       <div>
-        <h1 onClick={this.handleClick}>Boo yaa</h1>
+        {messages}
         <Formik
-          initialValues={{ message: '' }}
+          initialValues={{ clear: false, message: '' }}
           onSubmit={this.handleSubmit}
           render={formikProps => <SendMessageForm {...formikProps} />}
         />
