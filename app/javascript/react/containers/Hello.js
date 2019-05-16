@@ -38,13 +38,13 @@ class Hello extends Component {
     const messages = this.state.messages.map((message, index) => (<Message key={index} text={message} />))
 
     return(
-      <div>
-        {messages}
+      <div style={{ paddingTop: '1rem' }}>
         <Formik
           initialValues={{ clear: false, message: '' }}
           onSubmit={this.handleSubmit}
           render={formikProps => <SendMessageForm {...formikProps} />}
         />
+        {messages}
       </div>
     )
   }
