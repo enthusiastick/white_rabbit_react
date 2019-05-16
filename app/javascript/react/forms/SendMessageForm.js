@@ -5,7 +5,7 @@ import Checkbox from '../components/formFields/Checkbox'
 import TextArea from '../components/formFields/TextArea'
 
 const SendMessageForm = props => (
-  <form onSubmit={props.handleSubmit}>
+  <form className='callout' onSubmit={props.handleSubmit}>
     <div className='form-inputs'>
       <Field
         component={TextArea}

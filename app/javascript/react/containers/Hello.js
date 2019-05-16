@@ -21,7 +21,7 @@ class Hello extends Component {
       },
       {
         received: data => {
-          const newMessages = data.clear ? [data.message] : this.state.messages.concat(data.message)
+          const newMessages = data.clear ? [data.message] : [data.message].concat(this.state.messages)
           this.setState({messages: newMessages})
         }
       }
