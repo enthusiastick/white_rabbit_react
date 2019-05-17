@@ -38,13 +38,19 @@ class Hello extends Component {
     const messages = this.state.messages.map((message, index) => (<Message key={index} text={message} />))
 
     return(
-      <div style={{ paddingTop: '1rem' }}>
-        <Formik
-          initialValues={{ clear: false, message: '' }}
-          onSubmit={this.handleSubmit}
-          render={formikProps => <SendMessageForm {...formikProps} />}
-        />
-        {messages}
+      <div className='grid-y medium-grid-frame'>
+        <div className='cell' style={{ paddingTop: '1rem' }}>
+          <Formik
+            initialValues={{ clear: false, message: '' }}
+            onSubmit={this.handleSubmit}
+            render={formikProps => <SendMessageForm {...formikProps} />}
+          />
+        </div>
+        <div className='grid-y align-center medium-grid-frame'>
+          <div className='cell'>
+            {messages}
+          </div>
+        </div>
       </div>
     )
   }

@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "2.6.2"
 
 gem "autoprefixer-rails"
+gem "bcrypt"
 gem "bootsnap", ">= 1.1.0", require: false
 gem "fast_jsonapi"
 gem "foundation-rails"
