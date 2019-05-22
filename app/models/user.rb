@@ -26,6 +26,10 @@ class User < ApplicationRecord
     update_attributes(password_reset_digest: User.digest(password_reset_token), password_reset_sent_at: Time.current)
   end
 
+  def locked?
+    failed_sign_in_attempts > 5
+  end
+
   def password_reset_expired?
     (password_reset_sent_at + 2.hours).past?
   end
