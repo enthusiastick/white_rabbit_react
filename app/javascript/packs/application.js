@@ -1,13 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import AppRouter from '../react/AppRouter'
+import App from '../react/App'
 
 document.addEventListener('DOMContentLoaded', () => {
   const reactElement = document.getElementById('react')
 
   if (reactElement) {
-    ReactDOM.render(<AppRouter />,
+    ReactDOM.render(<App />,
     reactElement)
   }
 })

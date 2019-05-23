@@ -35,6 +35,7 @@ class SignIn extends Component {
     return(
       <div className='grid-y align-center medium-grid-frame'>
         <div className='cell'>
+          <h1 className='text-center'>Sign In</h1>
           <Formik
             initialValues={{ login: '', password: '' }}
             onSubmit={this.handleSubmit}
